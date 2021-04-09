@@ -120,7 +120,7 @@ if [[ ! -f "${CACHE_DIR}/bin/nginx" ]]; then
     --without-mail_imap_module \
     --without-mail_smtp_module \
     --with-http_realip_module \
-    --with-compat --add-dynamic-module=./ngx_brotli
+    --add-module=./ngx_brotli
 
   sed -i "/CFLAGS/s/ \-O //g" objs/Makefile
 
