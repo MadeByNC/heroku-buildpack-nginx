@@ -2,6 +2,10 @@
 
 This is the official dokku buildpack for static websites, powered by nginx.
 
+### Added in fork
+
+Support for http2 protocol and brotli compression algorithm.
+
 ## Usage
 
 All static files that you want to serve should be in the root directory of your repository. No need to use a separate `www` folder. `buildpack-nginx` will automatically download the buildpack, download NGINX, compile it, and install it. The next time you push your project, the buildpack will reuse the precompiled binaries.
