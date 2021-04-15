@@ -86,7 +86,7 @@ if [[ ! -e "nginx-${NGINX_VERSION}/openssl" ]]; then
   wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
   tar -zxvf openssl-1.1.1.tar.gz 
   pwd
-  cd ../
+  cd ../..
 fi
 
 pwd
