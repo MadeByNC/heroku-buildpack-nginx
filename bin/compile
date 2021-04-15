@@ -79,6 +79,15 @@ if [[ ! -e "nginx-${NGINX_VERSION}/ngx_brotli" ]]; then
   cd ../..
 fi
 
+if [[ ! -e "nginx-${NGINX_VERSION}/openssl" ]]; then
+  cd "nginx-${NGINX_VERSION}"
+  mkdir openssl
+  cd openssl
+  wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
+  tar -zxvf openssl-1.1.1.tar.gz 
+  cd ../
+fi
+
 mkdir -p "$BUILD_DIR/sigil"
 cp -r sigil "$BUILD_DIR/sigil/"
 
@@ -89,6 +98,7 @@ if [[ ! -f "${CACHE_DIR}/bin/nginx" ]]; then
   suppress ./configure \
     --with-http_ssl_module \
     --with-cpu-opt=generic \
+    --with-openssl=./openssl/openssl-1.1.1
     --prefix="$BUILD_DIR/nginx" \
     --with-pcre=../pcre-${PCRE_VERSION} \
     --sbin-path=. \
